@@ -21,3 +21,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/new-topic', function () {
+    return view('client.new-topic');
+});
+Route::get('/c-overview', function () {
+    return view('client.category-overview');
+});
+Route::get('/topic', function () {
+    return view('client.topic');
+});

@@ -13,6 +13,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -20,26 +24,30 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="container-fluid">
+        <!-- First section -->
+        <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <h1>
+            <a href="#" class="navbar-brand">Simon's Tech School Forum</a>
+            </h1>
+            <form action="#" class="form-inline mr-3 mb-2 mb-sm-0">
+            <input type="text" class="form-control" placeholder="search" />
+            <button type="submit" class="btn btn-success">Search Forum</button>
+            </form>
+        </div>
+        </nav>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+        <!-- first section end -->
+    </div>
+    <div class="container">
+        <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-item active"> Dashboard</a>
+        </nav>
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+        @yield('content')
                         <!-- Authentication Links -->
-                        @guest
+                        {{-- @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -78,6 +86,20 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div> --}}
+    <div class="container-fluid">
+        <footer class="small bg-dark text-white">
+          <div class="container py-4">
+            <ul class="list-inline mb-0 text-center">
+              <li class="list-inline-item">
+                &copy; 2021 Simon's tech school forum
+              </li>
+              <li class="list-inline-item">All rights reserved</li>
+              <li class="list-inline-item">Terms and privacy policy</li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
