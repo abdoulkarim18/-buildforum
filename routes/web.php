@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardControoler;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,5 @@ Route::get('/c-overview', function () {
 Route::get('/topic', function () {
     return view('client.topic');
 });
+
+route::get('dashboard/home',[DashboardControoler::class, 'home']);
