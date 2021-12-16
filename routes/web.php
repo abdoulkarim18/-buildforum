@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardControoler;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,6 @@ Route::get('/topic', function () {
     return view('client.topic');
 });
 
-route::get('dashboard/home',[DashboardControoler::class, 'home']);
+Route::get('dashboard/home',[DashboardControoler::class, 'home']);
+Route::get('dashboard/category/new', [CategoryController::class, 'create'])->name('category.new');
+Route::post('dashboard/category/new', [CategoryController::class, 'store'])->name('category.store');
