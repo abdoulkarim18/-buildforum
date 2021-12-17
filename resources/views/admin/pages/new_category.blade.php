@@ -45,13 +45,20 @@ use Illuminate\Support\Facades\Session;
           <input name="title" class="form-control" value=""/>
           </div>
         </div>
+            @error('title')
+                <p class="alert alert-danger">{{$message}}</p>
+            @enderror
 
         <div class="form-group">
             <label class="col-lg-2 control-label">Category Image</label>
             <div class="col-lg-10">
             <input type="file" name="image" class="form-control" />
             </div>
-          </div>
+        </div>
+            @error('image')
+                <p class="alert alert-danger">{{$message}}</p>
+            @enderror
+
         <div class="form-group">
           <label class="col-lg-2 control-label">Category Description</label>
           <div class="col-lg-10">
@@ -59,7 +66,9 @@ use Illuminate\Support\Facades\Session;
           </div>
         </div>
 
-
+            @error('desc')
+                <p class="alert alert-danger">{{$message}}</p>
+            @enderror
 
         <div class="form-group">
           <div class="col-lg-offset-2 col-lg-10">
