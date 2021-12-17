@@ -73,6 +73,12 @@
                           <span>Users</span>
                       </a>
           </li>
+         <li>
+            <a class="" href="{{route('categories')}}">
+                          <i class="fa fa-book"></i>
+                          <span>Categories</span>
+                      </a>
+          </li>
 
 
 
