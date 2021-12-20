@@ -19,6 +19,12 @@
           <div class="row">
 
             <div class="col-lg-12 col-md-12">
+                @if(\Session::has('message'))
+
+                <p class="alert
+                {{ Session::get('alert-class', 'alert-danger') }}">{{Session::get('message') }}</p>
+
+                @endif
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h2><i class="fa fa-flag-o red"></i><strong>Forum Categories</strong></h2>
@@ -48,9 +54,9 @@
                                 <td>{{$category->title}}</td>
                                 <td>Image</td>
                                 <td>{!!$category->desc!!}</td>
-                                <td><a href="/dashboard/users/{{$category->id}}"><i class="fa fa-eye text-success"></i></a></td>
-                                <td><a href="#"><i class="fa fa-edit text-info"></i></a></td>
-                                <td><a href="#" class="text-danger"><i class="fa fa-trash"></i>Delete</a></td>
+                                <td><a href="{{route('category.show', $category)}}"><i class="fa fa-eye text-success"></i></a></td>
+                                <td><a href="{{route('category.update', $category)}}"><i class="fa fa-edit text-info"></i></a></td>
+                                <td><a href="{{route('category.destroy', $category)}}" class="text-danger"><i class="fa fa-trash"></i>Delete</a></td>
 
                               </tr>
                             @endforeach

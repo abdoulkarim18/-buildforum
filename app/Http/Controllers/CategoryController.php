@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.new_category');
+        return view('admin.pages.create_category');
     }
 
     /**
@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $image = $request->image;
         $name = $image->getClientOriginalName();
         $new_name = time().$name;
-        $dir = "strorage/images/categories/";
+        $dir = "storage/images/categories/";
         $image->move($dir, $new_name);
 
         $category = new Category();
@@ -71,7 +71,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        // dd($category);
+        return view('admin.pages.show_category', compact('category'));
+
     }
 
     /**
@@ -82,7 +85,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+      $category = Category::find($id);
+        return view('admin.pages.edit_category', compact('category'));
     }
 
     /**
@@ -94,7 +98,34 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // SCOOP GLOBALE
+        $image = '';
+        $name = '';
+        $new_name = '';
+        $dir = '';
+
+        if($request->image){
+            $image = $request->image;
+            $name = $image->getClientOriginalName();
+            $new_name = time().$name;
+            $dir = "storage/images/categories/";
+            $image->move($dir, $new_name);
+        }
+
+        $category = Category::find($id);
+        if ($request->title) {
+            $category->title = $request->title;
+        }
+        if ($request->desc) {
+            $category->desc = $request->desc;
+        }
+        if ($request->image) {
+            $category->image = $new_name ;
+        }
+        $category->save();
+        Session::flash('message','Category Upadted Successfuly! ');
+        Session::flash('alert-class','alert-success');
+        return back();
     }
 
     /**
@@ -105,6 +136,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        Session::flash('message','Category Deleted Successfuly! ');
+        Session::flash('alert-class','alert-danger');
+        return back();
     }
 }

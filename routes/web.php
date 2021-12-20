@@ -38,3 +38,8 @@ Route::get('dashboard/home',[DashboardControoler::class, 'home']);
 Route::get('dashboard/category/new', [CategoryController::class, 'create'])->name('category.new');
 Route::post('dashboard/category/new', [CategoryController::class, 'store'])->name('category.store');
 Route::get('dashboard/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('dashboard/categories/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('dashboard/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::post('dashboard/categories/edit/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::get('dashboard/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
