@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <nav class="breadcrumb">
-      <a href="#" class="breadcrumb-item"> Home</a>
-      <span class="breadcrumb-item active">Category overview</span>
+      <a href="/" class="breadcrumb-item">Forum Categories</a>
+      <span class="breadcrumb-item active">{{$category->title}}</span>
     </nav>
 
     <div class="row">
@@ -14,7 +14,7 @@
           <div class="col-lg-12">
             <!-- second section  -->
             <h4 class="text-white bg-info mb-0 p-4 rounded-top">
-              Forum Category
+              {{$category->title}}
             </h4>
             <table
               class="table table-striped table-responsive table-bordered mb-xl-0"
@@ -24,230 +24,36 @@
                   <th scope="col">Forum</th>
                   <th scope="col">Topics</th>
                   <th scope="col">Posts</th>
-                  <th scope="col">Latest Post</th>
+                  {{-- <th scope="col">Latest Post</th> --}}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="h5">
-                      <a href="#" class="text-uppercase">Forum name</a>
-                    </h3>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta, laboriosam.
-                    </p>
-                  </td>
-                  <td><div>5</div></td>
-                  <td><div>20</div></td>
-                  <td>
-                    <h4 class="h6 font-weight-bold mb-0">
-                      <a href="#">Post name</a>
-                    </h4>
-                    <div><a href="#">Author name</a></div>
-                    <div>06/07/ 2021 20:04</div>
-                  </td>
-                </tr>
+                  @if (count($category->forums) > 0)
+                        @foreach ($category->forums as $forum)
+                            <tr>
+                                <td>
+                                <h3 class="h5">
+                                    <a href="#" class="text-uppercase">{{$forum->title}}</a>
+                                </h3>
+                                <p class="mb-0">
+                                    {!!$forum->desc!!}
+                                </p>
+                                </td>
+                                <td><div>{{$forum->topics}}</div></td>
+                                <td><div>{{$forum->posts}}</div></td>
+                                {{-- <td>
+                                <h4 class="h6 font-weight-bold mb-0">
+                                    <a href="#">Post name</a>
+                                </h4>
+                                <div><a href="#">Author name</a></div>
+                                <div>06/07/ 2021 20:04</div>
+                                </td> --}}
+                            </tr>
+                        @endforeach
+
+                    @else
+                        <h4>No forums in this category</h4>
+                    @endif
               </tbody>
             </table>
           </div>

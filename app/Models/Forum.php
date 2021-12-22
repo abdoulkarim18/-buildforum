@@ -15,4 +15,14 @@ class Forum extends Model
 
         return $this->belongsTo(Category::class);
     }
+
+    public function topics(){
+
+        return $this->hasMany(Topic::class);
+    }
+    
+    public function posts(){
+
+        return $this->hasMany(Post::class);
+    }
 }
