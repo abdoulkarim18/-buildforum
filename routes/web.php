@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardControoler;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,14 @@ Route::get('/dashboard/forums/show/{id}', [ForumController::class, 'show'])->nam
 Route::get('/dashboard/forums/edit/{id}', [ForumController::class, 'edit'])->name('forum.edit');
 Route::post('/dashboard/forums/edit/{id}', [ForumController::class, 'update'])->name('forum.update');
 Route::get('/dashboard/forums/delete/{id}', [ForumController::class, 'destroy'])->name('forum.destroy');
+
+// Topics
+Route::get('/client/topic/new/{id}', [TopicController::class, 'create'])->name('topic.new');
+Route::post('/client/topic/new', [TopicController::class, 'store'])->name('topic.store');
+// Route::get('/client/topic', [TopicController::class, 'index'])->name('topics');
+// Route::get('/client/topic/show/{id}', [TopicController::class, 'show'])->name('topic.show');
+
+// Route::get('/client/topic/edit/{id}', [TopicController::class, 'edit'])->name('topic.edit');
+// Route::post('/client/topic/edit/{id}', [TopicController::class, 'update'])->name('topic.update');
+// Route::get('/client/topic/delete/{id}', [TopicController::class, 'destroy'])->name('topic.destroy');
 

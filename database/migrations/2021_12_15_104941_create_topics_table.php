@@ -17,9 +17,11 @@ class CreateTopicsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('desc')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('notify')->default(0);
+            $table->boolean('is_deleted')->default(0);
             $table->unsignedBigInteger('forum_id');
             $table->foreign('forum_id')->references('id')->on('forums')->onDelete('cascade');
-            $table->boolean('is_deleted')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

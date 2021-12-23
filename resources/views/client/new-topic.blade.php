@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
     <nav class="breadcrumb">
-      <a href="#" class="breadcrumb-item"> Forum Name</a>
-      <a href="#" class="breadcrumb-item">Forum Category</a>
-      <a href="#" class="breadcrumb-item">Forum Name</a>
-      <span class="breadcrumb-item active">new post</span>
+      <a href="#" class="breadcrumb-item"> Forum Categories</a>
+      <a href="{{route('category.overview', $forum->category)}}" class="breadcrumb-item">{{$forum->category->title}}</a>
+      <a href="#" class="breadcrumb-item">{{$forum->title}}</a>
+      <span class="breadcrumb-item active">new topic</span>
     </nav>
 
     <div class="row">
@@ -15,33 +15,36 @@
           <!-- Category one -->
           <div class="col-lg-12">
             <!-- second section  -->
-            <h4 class="text-white bg-info mb-0 p-4 rounded">New Post</h4>
+            <h4 class="text-white bg-info mb-0 p-4 rounded">Create New Topic</h4>
           </div>
         </div>
       </div>
     </div>
 
-    <form action="" class="mb-3">
+    <form action="{{route('topic.store')}}" method="POST" class="mb-3">
+        @csrf
       <div class="form-group">
-        <label for="title">Post Title</label>
-        <input type="text" class="form-control" />
+        <label for="title">Topic Title</label>
+        <input type="text" name="title" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="title">Post Image</label>
-        <input type="file" class="form-control" name="post-image" />
+        <select name="forum_id" class="form-control">
+            @foreach ($forums as $forum)
+                <option value="{{$forum->id}}">{{$forum->title}}</option>
+            @endforeach
+        </select>
       </div>
       <div class="form-group">
         <textarea
           class="form-control"
-          name="comment"
+          name="desc"
           id=""
           rows="10"
-          required
         ></textarea>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="notify" />
+          <input type="checkbox" name="notify" class="form-check-input"/>
           Notify me upon reply
         </label>
       </div>

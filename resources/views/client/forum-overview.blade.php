@@ -133,6 +133,6 @@
         <button type="submit" class="btn btn-sm btn-primary">Sort</button>
       </form>
     </div>
-    <a href="#" class="btn btn-lg btn-primary mb-2">New Topic</a>
+    <a href="{{route('topic.new', $forum)}}" class="btn btn-lg btn-primary mb-2">New Topic</a>
   </div>
 @endsection
