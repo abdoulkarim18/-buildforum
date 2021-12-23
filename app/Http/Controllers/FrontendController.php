@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Forum;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -17,5 +18,11 @@ class FrontendController extends Controller
 
         $category = Category::find($id);
         return view('client.category-overview', compact('category'));
+    }
+
+    public function forumOverview($id){
+
+        $forum = Forum::find($id);
+        return view('client.forum-overview', compact('forum'));
     }
 }

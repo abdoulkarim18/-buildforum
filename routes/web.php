@@ -28,6 +28,7 @@ Route::get('/new-topic', function () {
     return view('client.new-topic');
 });
 Route::get('/category/overview/{id}', [FrontendController::class, 'categoryOverview'])->name('category.overview');
+Route::get('/forum/overview/{id}', [FrontendController::class, 'forumOverview'])->name('forum.overview');
 
 Route::get('/topic', function () {
     return view('client.topic');

@@ -33,7 +33,7 @@
                             <tr>
                                 <td>
                                 <h3 class="h5">
-                                    <a href="#" class="text-uppercase">{{$forum->title}}</a>
+                                    <a href="{{route('forum.overview', $forum)}}" class="text-uppercase">{{$forum->title}}</a>
                                 </h3>
                                 <p class="mb-0">
                                     {!!$forum->desc!!}
