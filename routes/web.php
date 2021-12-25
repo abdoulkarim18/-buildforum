@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardControoler;
+use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\TopicController;
@@ -59,12 +60,12 @@ Route::post('/dashboard/forums/edit/{id}', [ForumController::class, 'update'])->
 Route::get('/dashboard/forums/delete/{id}', [ForumController::class, 'destroy'])->name('forum.destroy');
 
 // Topics
-Route::get('/client/topic/new/{id}', [TopicController::class, 'create'])->name('topic.new');
-Route::post('/client/topic/new', [TopicController::class, 'store'])->name('topic.store');
-// Route::get('/client/topic', [TopicController::class, 'index'])->name('topics');
-// Route::get('/client/topic/show/{id}', [TopicController::class, 'show'])->name('topic.show');
+Route::get('/client/topic/new/{id}', [DiscussionController::class, 'create'])->name('topic.new');
+Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('topic.store');
+// Route::get('/client/topic', [DiscussionController::class, 'index'])->name('topics');
+// Route::get('/client/topic/show/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 
-// Route::get('/client/topic/edit/{id}', [TopicController::class, 'edit'])->name('topic.edit');
-// Route::post('/client/topic/edit/{id}', [TopicController::class, 'update'])->name('topic.update');
-// Route::get('/client/topic/delete/{id}', [TopicController::class, 'destroy'])->name('topic.destroy');
+// Route::get('/client/topic/edit/{id}', [DiscussionController::class, 'edit'])->name('topic.edit');
+// Route::post('/client/topic/edit/{id}', [DiscussionController::class, 'update'])->name('topic.update');
+// Route::get('/client/topic/delete/{id}', [DiscussionController::class, 'destroy'])->name('topic.destroy');
 

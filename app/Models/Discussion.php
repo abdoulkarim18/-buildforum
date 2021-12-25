@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Topic extends Model
+class Discussion extends Model
 {
     use HasFactory;
 
     public function forum(){
 
-        return $this->belongsTo(Forum::class);
+        return $this->belongsTo(Forum::class, 'foreign_key', 'forum_id');
     }
 }

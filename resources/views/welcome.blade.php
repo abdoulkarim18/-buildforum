@@ -26,7 +26,7 @@
                         <tr>
                             <th scope="col">Forum</th>
                             <th scope="col">Topics</th>
-                            <th scope="col">Posts</th>
+                            {{-- <th scope="col">Posts</th> --}}
                                 {{-- <th scope="col">Latest Post</th> --}}
                         </tr>
                         </thead>
@@ -42,8 +42,8 @@
                                             {!!$forum->desc!!}
                                         </p>
                                         </td>
-                                        <td><div>{{$forum->topics}}</div></td>
-                                        <td><div>{{$forum->posts}}</div></td>
+                                        <td><div>{{$forum->discussions->count()}}</div></td>
+                                        {{-- <td><div>{{$forum->posts}}</div></td> --}}
                                         {{-- <td>
                                         <h4 class="h6 font-weight-bold mb-0">
                                             <a href="#">Post name</a>

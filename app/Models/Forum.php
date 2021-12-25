@@ -20,9 +20,14 @@ class Forum extends Model
 
         return $this->hasMany(Topic::class);
     }
-    
+
     public function posts(){
 
         return $this->hasMany(Post::class);
+    }
+
+    public function discussions(){
+
+        return $this->hasMany(Discussion::class);
     }
 }
