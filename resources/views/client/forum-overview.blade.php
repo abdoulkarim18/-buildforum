@@ -29,31 +29,30 @@
               </thead>
               <tbody>
 
-                @if ($forum->topics > 0)
-                  @foreach ($forum->topics as $topic)
+                @if (count($forum->discussions) > 0)
+                  @foreach ($forum->discussions as $topic)
                     <tr>
                       <td>
                         <h3 class="h6">
                           <span class="badge badge-primary">7 unread</span>
-                          <a href="#" class=""
-                            >Lorem ipsum, dolor sit amet consectetur
-                            adipisicing.</a
+                          <a href="{{route('topic.show',$topic)}}" class=""
+                            >{{$topic->title}}.</a
                           >
                         </h3>
-                        <div class="small">
+                        {{-- <div class="small">
                           Go to page: <a href="#">1</a>, <a href="#">2</a>,
                           <a href="#">3</a>, <a href="#">4</a> &hellip;<a href="#"
                             >9</a
                           >,<a href="#">10</a>
-                        </div>
+                        </div> --}}
                       </td>
                       <td>
-                        <div>by <a href="#">Authorname</a></div>
-                        <div>08.10.2021</div>
+                        <div>by <a href="#">{{$topic->user->name}}</a></div>
+                        <div>{{$topic->created_at}}</div>
                       </td>
                       <td>
-                        <div>5 replies</div>
-                        <div>179 reviews</div>
+                        <div>{{$topic->replies->count()}} replies</div>
+                        <div>{{$topic->views}} views</div>
                       </td>
                     </tr>
                   @endforeach

@@ -7,7 +7,7 @@
       <a href="#" class="breadcrumb-item">Forum Category</a>
       <a href="#" class="breadcrumb-item">Forum Name</a>
       <span class="breadcrumb-item active"
-        >Forum Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span
+        >{{$topic->title}}</span
       >
     </nav>
 
@@ -18,7 +18,7 @@
           <div class="col-lg-12">
             <!-- second section  -->
             <h4 class="text-white bg-info mb-0 p-4 rounded-top">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {{$topic->title}}
             </h4>
             <table
               class="table table-striped table-responsivelg table-bordered"
@@ -32,34 +32,30 @@
               <tbody>
                 <tr>
                   <td class="author-col">
-                    <div>by<a href="#"> author name</a></div>
+                    <div>by<a href="#"> {{$topic->user->name}}</a></div>
                   </td>
                   <td class="post-col d-lg-flex justify-content-lg-between">
                     <div>
-                      <span class="font-weight-bold">Post subject:</span>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing
+                      <span class="font-weight-bold">Discussion subject:</span>
+                      {{$topic->title}}
                     </div>
                     <div>
-                      <span class="font-weight-bold">Posted:</span> 08.10.2021
+                      <span class="font-weight-bold">Posted:</span> {{$topic->created_at->diffForHumans()}}
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <div>
-                      <span class="font-weight-bold">Joined:</span>08.10.2021
+                      <span class="font-weight-bold">Joined:</span>{{$topic->user->created_at->diffForHumans()}}
                     </div>
                     <div>
-                      <span class="font-weight-bold">Posts:</span> 200
+                      <span class="font-weight-bold">Discussions:</span>{{count(array($topic->user->topics))}}
                     </div>
                   </td>
                   <td>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Soluta possimus, iusto, dolorem quo commodi, quisquam
-                      porro id est fugiat culpa voluptas saepe libero!
-                      Veritatis, laudantium. Ut distinctio error maxime
-                      cupiditate?
+                     {{$topic->desc}}
                     </p>
                     <img
                       src="https://placehold.it/600x400"
@@ -167,40 +163,42 @@
         </button>
       </div>
     </form>
+    @if (!auth()->user())
     <div>
-      <div class="d-lg-flex align-items-center mb-3">
-        <form
-          action=""
-          class="form-inline d-block d-sm-flex mr-2 mb-3 mb-lg-0"
-        >
-          <div class="form-group mr-2 mb-3 mb-md-0">
-            <label for="email" class="mr-2">Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="example@gmail.com"
-              required
-            />
-          </div>
+        <div class="d-lg-flex align-items-center mb-3">
+          <form
+            action=""
+            class="form-inline d-block d-sm-flex mr-2 mb-3 mb-lg-0"
+          >
+            <div class="form-group mr-2 mb-3 mb-md-0">
+              <label for="email" class="mr-2">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="example@gmail.com"
+                required
+              />
+            </div>
 
-          <div class="form-group mr-2 mb-3 mb-md-0">
-            <label for="password" class="mr-2">Password:</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              required
-            />
-          </div>
+            <div class="form-group mr-2 mb-3 mb-md-0">
+              <label for="password" class="mr-2">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                required
+              />
+            </div>
 
-          <button class="btn btn-primary">Login</button>
-        </form>
-        <span class="mr-2">or...</span>
-        <button class="btn btn-success">Create Account</button>
+            <button class="btn btn-primary">Login</button>
+          </form>
+          <span class="mr-2">or...</span>
+          <button class="btn btn-success">Create Account</button>
+        </div>
       </div>
-    </div>
-    <p class="small">
-      <a href="#">Have you forgotten your account details?</a>
-    </p>
+      <p class="small">
+        <a href="#">Have you forgotten your account details?</a>
+      </p>
+    @endif
   </div>
 @endsection

@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+//     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+// }
 
 Route::get('/', [FrontendController::class, 'index']);
 
@@ -31,10 +34,6 @@ Route::get('/new-topic', function () {
 });
 Route::get('/category/overview/{id}', [FrontendController::class, 'categoryOverview'])->name('category.overview');
 Route::get('/forum/overview/{id}', [FrontendController::class, 'forumOverview'])->name('forum.overview');
-
-Route::get('/topic', function () {
-    return view('client.topic');
-});
 
 Route::get('dashboard/home',[DashboardControoler::class, 'home']);
 
@@ -62,7 +61,7 @@ Route::get('/dashboard/forums/delete/{id}', [ForumController::class, 'destroy'])
 // Topics
 Route::get('/client/topic/new/{id}', [DiscussionController::class, 'create'])->name('topic.new');
 Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('topic.store');
-// Route::get('/client/topic', [DiscussionController::class, 'index'])->name('topics');
+Route::get('/client/topic/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 // Route::get('/client/topic/show/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 
 // Route::get('/client/topic/edit/{id}', [DiscussionController::class, 'edit'])->name('topic.edit');

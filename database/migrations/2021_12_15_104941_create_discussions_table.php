@@ -16,8 +16,9 @@ class CreateDiscussionsTable extends Migration
         Schema::create('discussions', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('desc')->nullable();
+            $table->longText('desc')->nullable();
             $table->string('image')->nullable();
+            $table->integer('views')->default(0);
             $table->boolean('notify')->default(0);
             $table->boolean('is_deleted')->default(0);
             $table->unsignedBigInteger('forum_id');

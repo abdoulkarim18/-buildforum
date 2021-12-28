@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discussion;
+use App\Models\Forum;
 use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
@@ -44,7 +46,7 @@ class DiscussionController extends Controller
             $notify = 1;
         }
 
-        $topic = new Topic();
+        $topic = new Discussion();
         $topic->title = $request->title;
         $topic->desc = $request->desc;
         $topic->forum_id = $request->forum_id;
@@ -62,7 +64,11 @@ class DiscussionController extends Controller
      */
     public function show($id)
     {
-        //
+        $topic = Discussion::find($id);
+        if($topic){
+            $topic->increment("views", 1);
+        }
+        return view('client.topic', compact('topic'));
     }
 
     /**
