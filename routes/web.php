@@ -62,7 +62,7 @@ Route::get('/dashboard/forums/delete/{id}', [ForumController::class, 'destroy'])
 Route::get('/client/topic/new/{id}', [DiscussionController::class, 'create'])->name('topic.new');
 Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('topic.store');
 Route::get('/client/topic/{id}', [DiscussionController::class, 'show'])->name('topic.show');
-// Route::get('/client/topic/show/{id}', [DiscussionController::class, 'show'])->name('topic.show');
+Route::post('/client/topic/reply/{id}', [DiscussionController::class, 'reply'])->name('topic.reply');
 
 // Route::get('/client/topic/edit/{id}', [DiscussionController::class, 'edit'])->name('topic.edit');
 // Route::post('/client/topic/edit/{id}', [DiscussionController::class, 'update'])->name('topic.update');
