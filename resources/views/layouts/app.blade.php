@@ -32,9 +32,22 @@
             <a href="#" class="navbar-brand">Simon's Tech School Forum</a>
             </h1>
             <form action="#" class="form-inline mr-3 mb-2 mb-sm-0">
-            <input type="text" class="form-control" placeholder="search" />
-            <button type="submit" class="btn btn-success">Search Forum</button>
+                <input type="text" class="form-control" placeholder="search" />
+                <button type="submit" class="btn btn-success">Search Forum</button>
             </form>
+
+            @guest
+                <a href="{{route('login') }}" class="nav-item nav-link text-white btn btn-dark">Login</a>
+                <a href="{{route('register') }}" class="nav-item nav-link text-white btn btn-dark">Register</a>
+            @endguest
+
+                @auth
+                    <form id="logout-form" action="{{ route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger">Logout</button>
+                    </form>
+                @endauth
+            
         </div>
         </nav>
 

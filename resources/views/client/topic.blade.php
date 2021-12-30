@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <nav class="breadcrumb">
-      <a href="#" class="breadcrumb-item"> Forum Name</a>
-      <a href="#" class="breadcrumb-item">Forum Category</a>
-      <a href="#" class="breadcrumb-item">Forum Name</a>
+      <a href="/" class="breadcrumb-item">Forum Categories</a>
+      <a href="{{route('category.overview', $topic->forum->category)}}" class="breadcrumb-item">{{$topic->forum->category->title}}</a>
+      <a href="{{route('forum.overview', $topic->forum)}}" class="breadcrumb-item">{{$topic->forum->title}}</a>
       <span class="breadcrumb-item active"
         >{{$topic->title}}</span
       >

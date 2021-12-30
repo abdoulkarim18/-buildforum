@@ -11,7 +11,7 @@ class Discussion extends Model
 
     public function forum(){
 
-        return $this->belongsTo(Forum::class, 'foreign_key', 'forum_id');
+        return $this->belongsTo(Forum::class);
     }
 
     public function user(){
