@@ -71,6 +71,7 @@ class DiscussionController extends Controller
         $reply->user_id = auth()->id();
         $reply->discussion_id = $id;
         $reply->save();
+        toastr()->success('Reply saved successfully!');
         return back();
     }
 
@@ -121,6 +122,9 @@ class DiscussionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reply = DiscussionReply::find($id);
+        $reply->delete();
+        toastr()->error('Reply Deleted successfully!');
+        return back();
     }
 }

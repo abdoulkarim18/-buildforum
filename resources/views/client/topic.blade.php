@@ -57,19 +57,6 @@
                     <p>
                      {{$topic->desc}}
                     </p>
-                    {{-- <img
-                      src="https://placehold.it/600x400"
-                      alt=""
-                      class="img-fluid"
-                    />
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi illum laborum est nemo, deserunt quasi esse debitis
-                      porro unde natus, magnam ducimus vel enim quia nam? Odio
-                      corrupti ratione accusamus molestias iusto quae, alias
-                      reiciendis dignissimos, voluptatum magnam perferendis
-                      aperiam.
-                    </p> --}}
                   </td>
                 </tr>
               </tbody>
@@ -86,33 +73,37 @@
                             <div>by<a href="#"> {{$reply->user->name}}</a></div>
                             </td>
                             <td class="post-col d-lg-flex justify-content-lg-between">
-                            <div>
-                                <span class="font-weight-bold">Post subject:</span>
-                                {{$topic->title}}
-                            </div>
-                            <div>
-                                <span class="font-weight-bold">Relied:</span> {{$reply->created_at->diffForHumans()}}
-                            </div>
+                                <div>
+                                    <span class="font-weight-bold">Post subject:</span>
+                                    {{$topic->title}}
+                                </div>
+                                <div>
+                                    <span class="font-weight-bold">Relied:</span> {{$reply->created_at->diffForHumans()}}
+                                </div>
+                                @if(auth()->id() == $reply->user_id)
+                                    <div>
+                                        <a href="{{route('reply.delete', $reply)}}"><i class="fa fa-trash text-danger"></i></a>
+                                    </div>
+                                @endif
                             </td>
                         </tr>
                         <tr>
                             <td>
-                            <div>
-                                <span class="font-weight-bold">Joined:</span>{{$reply->user->created_at->diffForHumans()}}
-                            </div>
-
+                                <div>
+                                    <span class="font-weight-bold">Joined:</span>{{$reply->user->created_at->diffForHumans()}}
+                                </div>
                             </td>
                             <td>
-                            <p>
-                                {{$reply->desc}}
-                            </p>
+                                <p>
+                                    {{$reply->desc}}
+                                </p>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 @endforeach
             @else
-                <h3>No discussion this yet!</h3>
+                <h3>No replies to this discussion yet!</h3>
             @endif
           </div>
         </div>
