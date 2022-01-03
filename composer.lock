@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "921985590ca0dfe22ccb1bc4aeff7f6e",
+    "content-hash": "519aeff3d8bdc5fa5d3a4854ac97b198",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -958,6 +958,73 @@
                 }
             ],
             "time": "2021-10-06T17:43:30+00:00"
+        },
+        {
+            "name": "highideas/laravel-users-online",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/highideas/laravel-users-online.git",
+                "reference": "046daa78473e4b3706f5cd8d7e0292d33e03483b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/highideas/laravel-users-online/zipball/046daa78473e4b3706f5cd8d7e0292d33e03483b",
+                "reference": "046daa78473e4b3706f5cd8d7e0292d33e03483b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "codacy/coverage": "dev-master",
+                "illuminate/auth": "^6.0",
+                "illuminate/cache": "^6.0",
+                "illuminate/database": "^6.0",
+                "illuminate/session": "^6.0",
+                "illuminate/support": "^6.0",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HighIdeas\\UsersOnline\\Providers\\UsersOnlineEventServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HighIdeas\\UsersOnline\\": "src/",
+                    "HighIdeas\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Goncalves",
+                    "email": "gabrielll_07@hotmail.com",
+                    "homepage": "http://gabrieldeveloper.com.br",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Marco Araujo",
+                    "email": "marco.araujo.junior@gmail.com",
+                    "homepage": "http://marcojunior.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package will provide an online users management.",
+            "keywords": [
+                "Users",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/highideas/laravel-users-online/issues",
+                "source": "https://github.com/highideas/laravel-users-online/tree/3.0.1"
+            },
+            "time": "2019-10-07T08:40:06+00:00"
         },
         {
             "name": "laravel/framework",

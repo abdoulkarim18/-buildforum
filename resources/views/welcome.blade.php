@@ -72,11 +72,11 @@
           <div class="card-body">
             <h4 class="card-title">Members Online</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="#">Member name</a></li>
-              <li><a href="#">Member name</a></li>
-              <li><a href="#">Member name</a></li>
-              <li><a href="#">Member name</a></li>
-              <li><a href="#">Member name</a></li>
+                @if (count($users_online) > 0)
+                    @foreach ($users_online as $user)
+                        <li><a href="#">{{$user->name}} <span class="badge badge-pill badge-success">online</span> </a></li>
+                    @endforeach
+                @endif
             </ul>
           </div>
         </div>

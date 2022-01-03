@@ -12,6 +12,8 @@ class FrontendController extends Controller
 {
     public function index(){
 
+        $user = new User;
+        $users_online = $user->allOnline();
         $forumsCount = count(Forum::all());
         $topicsCount = count(Discussion::all());
         $totalMembers = count(User::all());
@@ -19,7 +21,7 @@ class FrontendController extends Controller
         $totalCategories = count(Category::all());
         $categories = Category::latest()->get();
         // $categories = Category::with('forums.discussions')->get();
-        return view('welcome', compact('categories', 'forumsCount', 'topicsCount', 'newest', 'totalMembers', 'totalCategories'));
+        return view('welcome', compact('categories', 'forumsCount', 'topicsCount', 'newest', 'totalMembers', 'totalCategories', 'users_online'));
     }
 
     public function categoryOverview($id){
