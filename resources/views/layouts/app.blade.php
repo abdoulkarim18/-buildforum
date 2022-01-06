@@ -33,7 +33,7 @@
         <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <h1>
-            <a href="#" class="navbar-brand">Simon's Tech School Forum</a>
+            <a href="/" class="navbar-brand">Simon's Tech School Forum</a>
             </h1>
             <form action="#" class="form-inline mr-3 mb-2 mb-sm-0">
                 <input type="text" class="form-control" placeholder="search" />

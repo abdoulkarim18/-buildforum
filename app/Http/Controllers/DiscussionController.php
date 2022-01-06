@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Discussion;
-use App\Models\DiscussionReply;
 use App\Models\Forum;
+use App\Models\Discussion;
 use Illuminate\Http\Request;
+use App\Models\DiscussionReply;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class DiscussionController extends Controller
 {
@@ -112,6 +113,13 @@ class DiscussionController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function updates(){
+
+        $upadtes = Telegram::getUpdates();
+
+        dd($upadtes);
     }
 
     /**
