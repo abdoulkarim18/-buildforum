@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardControoler;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\TopicController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -64,8 +64,8 @@ Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('
 Route::get('/client/topic/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 Route::post('/client/topic/reply/{id}', [DiscussionController::class, 'reply'])->name('topic.reply');
 Route::get('/topic/reply/delete/{id}', [DiscussionController::class, 'destroy'])->name('reply.delete');
-Route::get('/updates', [DiscussionController::class, 'updates']);
 
-// Route::get('/client/topic/edit/{id}', [DiscussionController::class, 'edit'])->name('topic.edit');
-// Route::post('/client/topic/edit/{id}', [DiscussionController::class, 'update'])->name('topic.update');
+// Route::get('/updates', [DiscussionController::class, 'updates']);
+Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.update');
+
 

@@ -19,6 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('adresse')->nullable();
             $table->boolean('is_admin')->default(0);
+            $table->string('country')->nullable();
+            $table->string('proffesion')->nullable();
+            $table->text('bio')->nullable();
+            $table->text('skills')->nullable();
+            $table->text('education')->nullable();
             $table->boolean('is_deleted')->default(0);
             $table->boolean('is_verified')->default(0);
             $table->boolean('is_banned')->default(0);
