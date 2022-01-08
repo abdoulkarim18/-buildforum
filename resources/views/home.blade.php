@@ -166,11 +166,12 @@
                                           There are no discussion yet! 
                                         </p>   
                                     @endif
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" method="POST" action="{{route('topic.reply', $latest)}}">
+                                        @csrf
                                         <div class="input-group input-group-sm mb-0">
-                                            <input class="form-control form-control-sm" placeholder="Response">
+                                            <input class="form-control form-control-sm" name="desc" placeholder="Response">
                                             <div class="input-group-append">
-                                                <button type="submit" class="btn btn-danger">Send</button>
+                                                <button type="submit" class="btn btn-success">Reply to the topic</button>
                                             </div>
                                         </div>
                                     </form>
