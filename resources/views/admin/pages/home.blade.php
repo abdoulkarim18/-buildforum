@@ -37,7 +37,7 @@
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
               <div class="info-box brown-bg">
                 <i class="fa fa-users"></i>
-              <div class="count">30</div>
+              <div class="count">{{count($users)}}</div>
                 <div class="title">Users</div>
               </div>
               <!--/.info-box-->

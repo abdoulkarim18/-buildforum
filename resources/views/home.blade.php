@@ -111,12 +111,12 @@
                                 <!-- Post -->
                                 <div class="post">
                                     <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                                        <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user1-128x128.jpg" alt="user image">
                                         <span class="username">
-                                            <a href="#">Jonathan Burke Jr.</a>
+                                            <a href="#">You</a>
                                             <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                                         </span>
-                                        <span class="description">Shared publicly - 7:30 PM today</span>
+                                        <span class="description">Started a discussion - {{$latest_user_post->created_at}}</span>
                                     </div>
                                     <!-- /.user-block -->
                                     @if ($latest_user_post)
@@ -149,17 +149,17 @@
                                 <!-- Post -->
                                 <div class="post clearfix">
                                     <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+                                        <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user7-128x128.jpg" alt="User Image">
                                         <span class="username">
-                                            <a href="#">Sarah Ross</a>
+                                            <a href="#">{{$latest->user->name}}</a>
                                             <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                                         </span>
-                                        <span class="description">Sent you a message - 3 days ago</span>
+                                        <span class="description">Started a discussion - {{$latest->created_at}}</span>
                                     </div>
                                     <!-- /.user-block -->
                                     @if ($latest)
                                         <p>
-                                            {{$latest}}
+                                            {!!$latest->desc!!}
                                         </p> 
                                     @else
                                         <p>
