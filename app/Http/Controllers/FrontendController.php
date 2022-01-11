@@ -27,7 +27,16 @@ class FrontendController extends Controller
     public function categoryOverview($id){
 
         $category = Category::find($id);
-        return view('client.category-overview', compact('category'));
+        $user = new User;
+        $users_online = $user->allOnline();
+        $forumsCount = count(Forum::all());
+        $topicsCount = count(Discussion::all());
+        $totalMembers = count(User::all());
+        $newest = User::latest()->first();
+        $totalCategories = count(Category::all());
+        // $categories = Category::latest()->get();
+        // $categories = Category::with('forums.discussions')->get();
+        return view('client.category-overview', compact('category','users_online', 'forumsCount', 'topicsCount', 'newest', 'totalMembers', 'totalCategories'));
     }
 
     public function forumOverview($id){

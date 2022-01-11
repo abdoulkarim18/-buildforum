@@ -65,47 +65,37 @@
             <div class="card-body">
               <h4 class="card-title">Members Online</h4>
               <ul class="list-unstyled mb-0">
-                <li><a href="#">Member name</a></li>
-                <li><a href="#">Member name</a></li>
-                <li><a href="#">Member name</a></li>
-                <li><a href="#">Member name</a></li>
-                <li><a href="#">Member name</a></li>
+                  @if (count($users_online) > 0)
+                      @foreach ($users_online as $user)
+                          <li><a href="#">{{$user->name}} <span class="badge badge-pill badge-success">online</span> </a></li>
+                      @endforeach
+                  @endif
               </ul>
-            </div>
-            <div class="card-footer">
-              <dl class="row">
-                <dt class="col-8 mb-0">Total:</dt>
-                <dd class="col-4 mb-0">10</dd>
-              </dl>
-              <dl class="row">
-                <dt class="col-8 mb-0">Members:</dt>
-                <dd class="col-4 mb-0">10</dd>
-              </dl>
-              <dl class="row">
-                <dt class="col-8 mb-0">Guests:</dt>
-                <dd class="col-4 mb-0">3</dd>
-              </dl>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Members Statistics</h4>
               <dl class="row">
+                  <dt class="col-8 mb-0">Total categories:</dt>
+                  <dd class="col-4 mb-0">{{$totalCategories}}</dd>
+              </dl>
+              <dl class="row">
                 <dt class="col-8 mb-0">Total Forums:</dt>
-                <dd class="col-4 mb-0">15</dd>
+                <dd class="col-4 mb-0">{{$forumsCount}}</dd>
               </dl>
               <dl class="row">
                 <dt class="col-8 mb-0">Total Topics:</dt>
-                <dd class="col-4 mb-0">500</dd>
+                <dd class="col-4 mb-0">{{$topicsCount}}</dd>
               </dl>
               <dl class="row">
                 <dt class="col-8 mb-0">Total members:</dt>
-                <dd class="col-4 mb-0">200</dd>
+                <dd class="col-4 mb-0">{{$totalMembers}}</dd>
               </dl>
             </div>
             <div class="card-footer">
               <div>Newest Member</div>
-              <div><a href="#">Member Name</a></div>
+              <div><a href="#">{{$newest->name}}</a></div>
             </div>
           </div>
         </aside>

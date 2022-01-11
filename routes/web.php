@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 //     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 // }
 
-Route::get('/', [FrontendController::class, 'index']);
 
 Auth::routes();
 
@@ -32,6 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/new-topic', function () {
     return view('client.new-topic');
 });
+
+Route::get('/', [FrontendController::class, 'index']);
 Route::get('/category/overview/{id}', [FrontendController::class, 'categoryOverview'])->name('category.overview');
 Route::get('/forum/overview/{id}', [FrontendController::class, 'forumOverview'])->name('forum.overview');
 

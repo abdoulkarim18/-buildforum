@@ -34,7 +34,7 @@
                     <tr>
                       <td>
                         <h3 class="h6">
-                          <span class="badge badge-primary">7 unread</span>
+                          <span class="badge badge-success">{{$topic->replies->count()}} replies</span>
                           <a href="{{route('topic.show',$topic)}}" class=""
                             >{{$topic->title}}.</a
                           >
