@@ -20,7 +20,7 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Discussions</b> <a class="float-right">1,322</a>
+                                <b>Topics Count:</b> <a class="float-right">{{count(auth()->user()->discussions)}}</a>
                             </li>
                             {{-- <li class="list-group-item">
                                 <b>Following</b> <a class="float-right">543</a>
@@ -122,24 +122,28 @@
                                     @if ($latest_user_post)
                                         <p>
                                             {{$latest_user_post->desc}}
-                                        </p> 
+                                        </p>
                                     @else
                                         <p>
-                                          You have not started any discussion yet! 
-                                        </p>   
+                                          You have not started any discussion yet!
+                                        </p>
                                     @endif
 
                                     <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-eye mr-1"></i> {{$latest_user_post->views}} views</a>
+                                        <a href="#" class="link-black text-sm"><i class="far fa-arrow mr-1"></i> {{$latest_user_post->replies->count()}} replies</a>
                                         <span class="float-right">
-                                            <a href="#" class="link-black text-sm">
-                                                <i class="far fa-comments mr-1"></i> Comments (5)
+                                           @if ($latest_user_post->replies->count() > 0)
+                                            <button class="btn btn-danger disabled"><i class="fa fa-trash"></i></button>
+                                           @else
+                                            <a href="{{route('topic.delete', $latest_user_post)}}" class="link-black text-sm">
+                                                <i class="fa fa-trash"></i>
                                             </a>
+                                           @endif
                                         </span>
                                     </p>
 
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                                    <br><br>
                                 </div>
                                 <!-- /.post -->
 
@@ -160,11 +164,11 @@
                                     @if ($latest)
                                         <p>
                                             {!!$latest->desc!!}
-                                        </p> 
+                                        </p>
                                     @else
                                         <p>
-                                          There are no discussion yet! 
-                                        </p>   
+                                          There are no discussion yet!
+                                        </p>
                                     @endif
                                     <form class="form-horizontal" method="POST" action="{{route('topic.reply', $latest)}}">
                                         @csrf

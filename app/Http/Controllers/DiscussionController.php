@@ -122,6 +122,14 @@ class DiscussionController extends Controller
         dd($upadtes);
     }
 
+    public function remove($id){
+
+        $discussion = Discussion::find($id);
+        $discussion->delete();
+        toastr()->success('Reply saved successfully!');
+        return back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

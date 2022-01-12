@@ -64,6 +64,7 @@ Route::get('/client/topic/new/{id}', [DiscussionController::class, 'create'])->n
 Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('topic.store');
 Route::get('/client/topic/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 Route::post('/client/topic/reply/{id}', [DiscussionController::class, 'reply'])->name('topic.reply');
+Route::get('/client/topic/{id}', [DiscussionController::class, 'remove'])->name('topic.delete');
 Route::get('/topic/reply/delete/{id}', [DiscussionController::class, 'destroy'])->name('reply.delete');
 
 // Route::get('/updates', [DiscussionController::class, 'updates']);
