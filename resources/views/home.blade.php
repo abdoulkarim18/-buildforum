@@ -100,87 +100,85 @@
                             <div class="active tab-pane" id="activity">
 
 
-
-
-
-
-
-
-
-
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                                        <span class="username">
-                                            <a href="#">You</a>
-                                            <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                        </span>
-                                        <span class="description">Started a discussion - {{$latest_user_post->created_at}}</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    @if ($latest_user_post)
-                                        <p>
-                                            {{$latest_user_post->desc}}
-                                        </p>
-                                    @else
-                                        <p>
-                                          You have not started any discussion yet!
-                                        </p>
-                                    @endif
-
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-eye mr-1"></i> {{$latest_user_post->views}} views</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-arrow mr-1"></i> {{$latest_user_post->replies->count()}} replies</a>
-                                        <span class="float-right">
-                                           @if ($latest_user_post->replies->count() > 0)
-                                            <button class="btn btn-danger disabled"><i class="fa fa-trash"></i></button>
-                                           @else
-                                            <a href="{{route('topic.delete', $latest_user_post)}}" class="link-black text-sm">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                           @endif
-                                        </span>
-                                    </p>
-
-                                    <br><br>
-                                </div>
-                                <!-- /.post -->
-
-
-
-
-                                <!-- Post -->
-                                <div class="post clearfix">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                                        <span class="username">
-                                            <a href="#">{{$latest->user->name}}</a>
-                                            <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                        </span>
-                                        <span class="description">Started a discussion - {{$latest->created_at}}</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    @if ($latest)
-                                        <p>
-                                            {!!$latest->desc!!}
-                                        </p>
-                                    @else
-                                        <p>
-                                          There are no discussion yet!
-                                        </p>
-                                    @endif
-                                    <form class="form-horizontal" method="POST" action="{{route('topic.reply', $latest)}}">
-                                        @csrf
-                                        <div class="input-group input-group-sm mb-0">
-                                            <input class="form-control form-control-sm" name="desc" placeholder="Response">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-success">Reply to the topic</button>
-                                            </div>
+                                @if ($latest_user_post)
+                                     <!-- Post -->
+                                    <div class="post">
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                                            <span class="username">
+                                                <a href="#">You</a>
+                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                            </span>
+                                            <span class="description">Started a discussion - {{$latest_user_post->created_at}}</span>
                                         </div>
-                                    </form>
-                                </div>
-                                <!-- /.post -->
+                                        <!-- /.user-block -->
+                                        @if ($latest_user_post)
+                                            <p>
+                                                {{$latest_user_post->desc}}
+                                            </p>
+                                        @else
+                                            <p>
+                                            You have not started any discussion yet!
+                                            </p>
+                                        @endif
+
+                                        <p>
+                                            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-eye mr-1"></i> {{$latest_user_post->views}} views</a>
+                                            <a href="#" class="link-black text-sm"><i class="far fa-arrow mr-1"></i> {{$latest_user_post->replies->count()}} replies</a>
+                                            <span class="float-right">
+                                            @if ($latest_user_post->replies->count() > 0)
+                                                <button class="btn btn-danger disabled"><i class="fa fa-trash"></i></button>
+                                            @else
+                                                <a href="{{route('topic.delete', $latest_user_post)}}" class="link-black text-sm">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            @endif
+                                            </span>
+                                        </p>
+
+                                        <br><br>
+                                    </div>
+                                    <!-- /.post -->
+                               @endif
+
+
+
+
+                               @if ($latest)
+                                   <!-- Post -->
+                                    <div class="post clearfix">
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" height="50" width="50" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+                                            <span class="username">
+                                                <a href="#">{{$latest->user->name}}</a>
+                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                            </span>
+                                            <span class="description">Started a discussion - {{$latest->created_at}}</span>
+                                        </div>
+                                        <!-- /.user-block -->
+                                        @if ($latest)
+                                            <p>
+                                                {!!$latest->desc!!}
+                                            </p>
+                                        @else
+                                            <p>
+                                            There are no discussion yet!
+                                            </p>
+                                        @endif
+                                        <form class="form-horizontal" method="POST" action="{{route('topic.reply', $latest)}}">
+                                            @csrf
+                                            <div class="input-group input-group-sm mb-0">
+                                                <input class="form-control form-control-sm" name="desc" placeholder="Response">
+                                                <div class="input-group-append">
+                                                    <button type="submit" class="btn btn-success">Reply to the topic</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.post --> 
+                               @else
+                                 <h3>No Discussions Found</h3>  
+                               @endif
 
 
                             </div>
@@ -265,7 +263,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-outline-primary">Updated</button>
+                                            <button type="submit" class="btn btn-primary">Update details </button>
                                         </div>
                                     </div>
                                 </form>

@@ -50,7 +50,7 @@
                                 <td>{{$user->rank}}</td>
                                 <td><a href="/dashboard/users/{{$user->id}}"><i class="fa fa-eye text-success"></i></a></td>
                                 <td><a href="#"><i class="fa fa-edit text-info"></i></a></td>
-                                <td><a href="#" class="text-danger"><i class="fa fa-trash"></i>Delete</a></td>
+                                <td><a href="#" class="text-danger"><i class="fas fa-trash text-danger"></i></a></td>
                                
                               </tr>
                             @endforeach

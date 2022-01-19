@@ -67,6 +67,12 @@ Route::post('/client/topic/reply/{id}', [DiscussionController::class, 'reply'])-
 Route::get('/client/topic/{id}', [DiscussionController::class, 'remove'])->name('topic.delete');
 Route::get('/topic/reply/delete/{id}', [DiscussionController::class, 'destroy'])->name('reply.delete');
 
+// Users
+Route::get('/dashboard/users', [DashboardControoler::class, 'users'])->name('users');
+Route::get('/dashboard/admin/profile', [DashboardControoler::class, 'profile'])->name('admin.profile');
+Route::get('/dashboard/users/{id}', [DashboardControoler::class, 'show']);
+Route::post('/dashboard/users/{id}', [DashboardControoler::class, 'destroy'])->name('user.delete');
+
 // Route::get('/updates', [DiscussionController::class, 'updates']);
 Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.update');
 

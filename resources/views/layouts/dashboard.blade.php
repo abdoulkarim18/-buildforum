@@ -12,6 +12,15 @@
   <title>DRO -Digital Agency</title>
 
   <!-- Bootstrap CSS -->
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
   <!-- bootstrap theme -->
   <link href="{{asset('admin/css/bootstrap-theme.css')}}" rel="stylesheet">
@@ -35,6 +44,7 @@
   <link href="{{asset('admin/css/xcharts.min.css')}}" rel=" stylesheet">
   <link href="{{asset('admin/css/jquery-ui-1.10.4.min.css')}}" rel="stylesheet">
 
+  @toastr_css
   <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
 </head>
@@ -69,7 +79,7 @@
             </ul>
           </li>
          <li>
-            <a class="" href="/dashboard/users">
+            <a class="" href="{{route('users')}}">
                           <i class="fa fa-users"></i>
                           <span>Users</span>
                       </a>
@@ -200,7 +210,9 @@
         });
       });
     </script>
-
+    @jquery
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>
