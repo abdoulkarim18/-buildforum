@@ -36,9 +36,9 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('/category/overview/{id}', [FrontendController::class, 'categoryOverview'])->name('category.overview');
 Route::get('/forum/overview/{id}', [FrontendController::class, 'forumOverview'])->name('forum.overview');
 
-Route::get('dashboard/home',[DashboardControoler::class, 'home']);
+Route::get('dashboard/home', [DashboardControoler::class, 'home']);
 
-                // ADMIN DASHBOARD
+// ADMIN DASHBOARD
 //Categories
 Route::get('/dashboard/category/new', [CategoryController::class, 'create'])->name('category.new');
 Route::post('/dashboard/category/new', [CategoryController::class, 'store'])->name('category.store');
@@ -62,7 +62,7 @@ Route::get('/dashboard/forums/delete/{id}', [ForumController::class, 'destroy'])
 // Topics
 Route::get('/client/topic/new/{id}', [DiscussionController::class, 'create'])->name('topic.new');
 Route::post('/client/topic/new', [DiscussionController::class, 'store'])->name('topic.store');
-Route::get('/client/topic/{id}', [DiscussionController::class, 'show'])->name('topic.show');
+Route::get('/client/topic/show/{id}', [DiscussionController::class, 'show'])->name('topic.show');
 Route::post('/client/topic/reply/{id}', [DiscussionController::class, 'reply'])->name('topic.reply');
 Route::get('/client/topic/{id}', [DiscussionController::class, 'remove'])->name('topic.delete');
 Route::get('/topic/reply/delete/{id}', [DiscussionController::class, 'destroy'])->name('reply.delete');
@@ -76,4 +76,6 @@ Route::post('/dashboard/users/{id}', [DashboardControoler::class, 'destroy'])->n
 // Route::get('/updates', [DiscussionController::class, 'updates']);
 Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.update');
 
-
+Route::get('/dashboard/notifications', [DashboardControoler::class, 'notifications'])->name('notifications');
+Route::get('/dashboard/notifications/mark-as-read/{id}', [DashboardControoler::class, 'markAsRead'])->name('notification.read');
+Route::get('/dashboard/notifications/delete/{id}', [DashboardControoler::class, 'notificationDestroy'])->name('notification.delete');

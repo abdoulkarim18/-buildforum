@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Forum;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
 use App\Models\DiscussionReply;
+use App\Notifications\NewReply;
+use App\Notifications\NewTopic;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class DiscussionController extends Controller
@@ -55,6 +58,15 @@ class DiscussionController extends Controller
         $topic->user_id = auth()->id();
         $topic->notify = $notify;
         $topic->save();
+
+        $latestTopic = Discussion::latest()->first();
+        $admins = User::where('is_admin', 1)->get();
+        foreach ($admins as $admin) {
+
+            $admin->notify(new NewTopic($latestTopic));
+        }
+
+        toastr()->success('Discussion Started successfully!');
         return back();
     }
 
@@ -72,6 +84,14 @@ class DiscussionController extends Controller
         $reply->user_id = auth()->id();
         $reply->discussion_id = $id;
         $reply->save();
+
+        $latestReply = DiscussionReply::latest()->first();
+        $admins = User::where('is_admin', 1)->get();
+        foreach ($admins as $admin) {
+
+            $admin->notify(new NewReply($latestReply));
+        }
+
         toastr()->success('Reply saved successfully!');
         return back();
     }
@@ -86,6 +106,7 @@ class DiscussionController extends Controller
     public function show($id)
     {
         $topic = Discussion::find($id);
+        
         if($topic){
             $topic->increment("views", 1);
         }
