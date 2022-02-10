@@ -79,3 +79,7 @@ Route::post('user/update/{id}', [UserController::class, 'update'])->name('user.u
 Route::get('/dashboard/notifications', [DashboardControoler::class, 'notifications'])->name('notifications');
 Route::get('/dashboard/notifications/mark-as-read/{id}', [DashboardControoler::class, 'markAsRead'])->name('notification.read');
 Route::get('/dashboard/notifications/delete/{id}', [DashboardControoler::class, 'notificationDestroy'])->name('notification.delete');
+
+Route::get('/client/user/{id}',[FrontendController::class, 'profile'])->name('client.user.profile');
+
+
