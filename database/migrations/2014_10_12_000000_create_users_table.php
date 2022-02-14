@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('adresse')->nullable();
             $table->boolean('is_admin')->default(0);
             $table->string('country')->nullable();
+            $table->string('profile_image')->nullable();
             $table->string('proffesion')->nullable();
             $table->text('bio')->nullable();
             $table->text('skills')->nullable();

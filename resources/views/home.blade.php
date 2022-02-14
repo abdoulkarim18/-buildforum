@@ -11,7 +11,7 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="{{asset('../../dist/img/user4-128x128.jpg')}}" alt="User profile picture">
+                            <img class="profile-user-img img-fluid img-circle" src="{{asset('/storage/profile/'.auth()->user()->profile_image)}}" alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center">{{auth()->user()->name}}</h3>
@@ -22,10 +22,14 @@
                             <li class="list-group-item">
                                 <b>Topics Count:</b> <a class="float-right">{{count(auth()->user()->discussions)}}</a>
                             </li>
-                            {{-- <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
-                            </li>
                             <li class="list-group-item">
+                               <form action="{{route('user.photo.profile', auth()->id())}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="file" name="profile_image" class="form-control">
+                                    <input type="submit" value="Updated Photo" class="form-control">
+                               </form>
+                            </li>
+                            {{-- <li class="list-group-item">
                                 <b>Friends</b> <a class="float-right">13,287</a>
                             </li> --}}
                         </ul>
@@ -175,9 +179,9 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <!-- /.post --> 
+                                    <!-- /.post -->
                                @else
-                                 <h3>No Discussions Found</h3>  
+                                 <h3>No Discussions Found</h3>
                                @endif
 
 

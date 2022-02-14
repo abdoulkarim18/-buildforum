@@ -10,7 +10,7 @@
                 <div class="card-body box-profile">
                     <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle"
-                            src="{{asset('../../dist/img/user4-128x128.jpg')}}" alt="User profile picture">
+                            src="{{asset('/storage/profile/'.$user->profile_image)}}" alt="User profile picture">
                     </div>
 
                     <h3 class="profile-username text-center">{{$user->name}}</h3>
@@ -24,7 +24,7 @@
                             <b>Topics Count:</b> <a class="float-right">{{count($user->discussions)}}</a>
                         </li>
                         {{-- <li class="list-group-item">
-                            <b>Following</b> <a class="float-right">543</a>
+                            <b>Following</b> <a class="float-right">543</a> 
                         </li>
                         <li class="list-group-item">
                             <b>Friends</b> <a class="float-right">13,287</a>
@@ -107,7 +107,7 @@
                             <div class="post">
                                 <div class="user-block">
                                     <img class="img-circle img-bordered-sm" height="50" width="50"
-                                        src="../../dist/img/user1-128x128.jpg" alt="user image">
+                                        src="{{asset('/storage/profile/'.$user->profile_image)}}" alt="user image">
                                     <span class="username">
                                         <a href="#">{{$user->name}}</a>
                                         <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>

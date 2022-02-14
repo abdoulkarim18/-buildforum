@@ -80,6 +80,7 @@ Route::get('/dashboard/notifications', [DashboardControoler::class, 'notificatio
 Route::get('/dashboard/notifications/mark-as-read/{id}', [DashboardControoler::class, 'markAsRead'])->name('notification.read');
 Route::get('/dashboard/notifications/delete/{id}', [DashboardControoler::class, 'notificationDestroy'])->name('notification.delete');
 
-Route::get('/client/user/{id}',[FrontendController::class, 'profile'])->name('client.user.profile');
-
+Route::get('/client/user/{id}',[FrontendController::class, 'profile'])->name('client.user.profile')->middleware('auth');
+Route::get('/client/users',[FrontendController::class, 'users'])->name('client.users')->middleware('auth');
+Route::post('/user/update/photo/{id}', [FrontendController::class, 'photoUpdate'])->name('user.photo.profile');
 
