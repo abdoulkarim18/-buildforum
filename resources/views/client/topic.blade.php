@@ -84,6 +84,11 @@
                                     <div>
                                         <a href="{{route('reply.delete', $reply)}}"><i class="fa fa-trash text-danger"></i></a>
                                     </div>
+                                @else
+                                    <div>
+                                        <a href="{{route('reply.like', $reply)}}" class="mr-3"><i class="fa fa-thumbs-up text-success">{{$reply->$reply_like}}</i></a>
+                                        <a href="{{route('reply.dislike', $reply)}}"><i class="fa fa-thumbs-down text-danger">5</i></a>
+                                    </div>
                                 @endif
                             </td>
                         </tr>

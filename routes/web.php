@@ -84,3 +84,6 @@ Route::get('/client/user/{id}',[FrontendController::class, 'profile'])->name('cl
 Route::get('/client/users',[FrontendController::class, 'users'])->name('client.users')->middleware('auth');
 Route::post('/user/update/photo/{id}', [FrontendController::class, 'photoUpdate'])->name('user.photo.profile');
 
+Route::get('reply/like/{id}', [DiscussionController::class, 'like'])->name('reply.like');
+Route::post('reply/dislike/{id}', [DiscussionController::class, 'dislike'])->name('reply.dislike');
+

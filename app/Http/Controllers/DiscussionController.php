@@ -7,6 +7,7 @@ use App\Models\Forum;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
 use App\Models\DiscussionReply;
+use App\Models\ReplyLike;
 use App\Notifications\NewReply;
 use App\Notifications\NewTopic;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -164,4 +165,50 @@ class DiscussionController extends Controller
         toastr()->error('Reply Deleted successfully!');
         return back();
     }
+
+    public function like($id)
+    {
+        $reply = DiscussionReply::find($id);
+        $user_id = $reply->user_id;
+        $liked = ReplyLike::where('user_id', '=', auth()->id())->where('reply_id', '=', $id)->get();
+// dd($liked)
+        if (count($liked) > 0) {
+            toastr()->error('You are already liked the reply !');
+            return back();
+        }
+
+        $reply_like = new ReplyLike();
+        $reply_like->$user_id = auth()->id();
+        $reply_like->reply_id = $id;
+        $reply_like->save();
+        $owner = User::find($user_id);
+        $reply->increment('likes', 1);
+        $owner->increment('rank',10);
+        toastr()->success('Like saved successfully!');
+        return back();
+    }
+
+    public function dislike($id)
+    {
+        $reply = DiscussionReply::find($id);
+        $user_id = $reply->user_id;
+
+        $liked = ReplyLike::where('user_id', '=', auth()->id())->where('reply_id', '=', $id)->get();
+
+        if (count($liked) > 0) {
+            toastr()->error('You are already liked the reply !');
+            return back();
+        }
+
+        $reply_like = new ReplyLike();
+        $reply_like->$user_id = auth()->id();
+        $reply_like->reply_id = $id;
+        $reply_like->save();
+        $owner = User::find($user_id);
+        $reply->increment('likes', 1);
+        $owner->increment('rank',10);
+        toastr()->success('Like saved successfully!');
+        return back();
+    }
+
 }
